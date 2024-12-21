@@ -20,10 +20,10 @@ const Header = () => {
   ]
 
   return (
-    <div className='flex items-center justify-between p-4 px-10 md:px-32 lg:px-48 bg-primary border-b-4 border-black'>
+    <div className='flex items-center justify-between p-4 px-4 md:px-32 lg:px-48 bg-primary border-b-4 border-black'>
       <h2 className='font-bold text-lg bg-black text-white px-2 p-1'>Apna Store</h2>
 
-      <ul className='flex gap-5'>
+      <ul className='hidden md:flex gap-5'>
         {menuItems.map((menu, index) => (
           <li
             key={index}

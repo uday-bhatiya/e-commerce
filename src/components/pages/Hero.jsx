@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 
 const Hero = () => {
     return (
-        <div className='bg-green-700 p-10 px-28 lg:px-36'>
+        <div className='bg-green-700 p-10 px-5 md:px-28 lg:px-36'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 pt-20'>
                 <div>
                     <h2 className='font-extrabold text-5xl text-white'>Spped Up your Creative workflow</h2>
