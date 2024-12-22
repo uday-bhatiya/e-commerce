@@ -2,6 +2,7 @@ import { ShoppingBag } from 'lucide-react'
 import React from 'react'
 import { Button } from '../ui/button'
 import { UserButton } from '@clerk/nextjs'
+import Link from 'next/link'
 
 const Header = () => {
 
@@ -22,7 +23,9 @@ const Header = () => {
 
   return (
     <div className='flex items-center justify-between p-4 px-4 md:px-32 lg:px-48 bg-primary border-b-4 border-black'>
+      <Link href={'/'}>
       <h2 className='font-bold text-lg bg-black text-white px-2 p-1'>Apna Store</h2>
+      </Link>
 
       <ul className='hidden md:flex gap-5'>
         {menuItems.map((menu, index) => (
@@ -35,7 +38,9 @@ const Header = () => {
 
       <div className='flex items-center justify-between gap-2'>
         <ShoppingBag />
+        <Link href={'/dashboard'}>
         <Button className='bg-red-500 hover:bg-red-600'>Start selling</Button>
+        </Link>
         <UserButton />
       </div>
     </div>
