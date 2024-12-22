@@ -1,6 +1,7 @@
 import { ShoppingBag } from 'lucide-react'
 import React from 'react'
 import { Button } from '../ui/button'
+import { UserButton } from '@clerk/nextjs'
 
 const Header = () => {
 
@@ -35,6 +36,7 @@ const Header = () => {
       <div className='flex items-center justify-between gap-2'>
         <ShoppingBag />
         <Button className='bg-red-500 hover:bg-red-600'>Start selling</Button>
+        <UserButton />
       </div>
     </div>
   )

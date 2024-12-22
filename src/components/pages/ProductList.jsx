@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
-import Product from '@/app/_demoData/product';
+import Product from '../../app/_demoData/product';
 import ProductCardItem from '../common/ProductCardItem';
 
 const ProductList = () => {
