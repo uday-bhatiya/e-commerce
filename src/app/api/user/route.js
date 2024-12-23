@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import UserModel from '../../../models/user.model';
 
 export async function POST(req) {
-    connectDb();
+    await connectDb();
 
     try {
         const { user } = await req.json();

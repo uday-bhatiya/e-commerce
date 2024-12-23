@@ -9,6 +9,7 @@ import {
   SignedOut,
   UserButton
 } from '@clerk/nextjs'
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: "E-Commerce",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           <Provider>
             {children}
           </Provider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

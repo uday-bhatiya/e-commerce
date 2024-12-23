@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Button } from '../ui/button'
+import Link from 'next/link';
 
 const UserListing = () => {
 
@@ -11,7 +12,9 @@ const UserListing = () => {
     <div className='mt-5'>
         <h2 className='font-bold text-xl flex items-center justify-between'>
             Listing
+            <Link href={'/add-product'}>
             <Button>+ Add New Product</Button>
+            </Link>
         </h2>
 
         <div>
