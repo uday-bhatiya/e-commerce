@@ -5,6 +5,7 @@ import cloudinary from "../../../lib/cloudinary";
 import fs from 'fs/promises';
 import path from 'path';
 import ProductModel from "../../../models/product.model";
+import UserModel from "../../../models/user.model";
 
 export const config = {
   api: {
@@ -71,6 +72,8 @@ export async function POST(req) {
         folder: 'ecommerce/products',
       });
 
+      const user = await UserModel.findOne({ email: fields?.data?.userEmail});
+
       const newProduct = new ProductModel({
         title: fields?.data?.title,
         price: fields?.data?.price,
@@ -80,6 +83,7 @@ export async function POST(req) {
         imageUrl: imageUploadResult?.url,
         message: fields?.data?.message,
         createdBy: fields?.data?.userEmail,
+        createdById: user?._id
       });
 
       await newProduct.save();
@@ -102,4 +106,16 @@ export async function POST(req) {
       error: error.message,
     });
   }
+}
+
+export async function GET(req) {
+  const { searchParams } = new  URL(req.url);
+  const email = searchParams.get('email');
+
+  const response = await ProductModel.find({createdBy: email}).populate({
+    path: 'createdById'
+  })
+  // const sortedResponse = response.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+  return NextResponse.json({ response });
 }
