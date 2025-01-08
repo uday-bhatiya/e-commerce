@@ -72,7 +72,7 @@ export async function POST(req) {
         folder: 'ecommerce/products',
       });
 
-      const user = await UserModel.findOne({ email: fields?.data?.userEmail});
+      const user = await UserModel.findOne({ email: fields?.data?.userEmail });
 
       const newProduct = new ProductModel({
         title: fields?.data?.title,
@@ -109,13 +109,52 @@ export async function POST(req) {
 }
 
 export async function GET(req) {
-  const { searchParams } = new  URL(req.url);
+  const { searchParams } = new URL(req.url);
   const email = searchParams.get('email');
+  const limit = searchParams.get('limit');
 
-  const response = await ProductModel.find({createdBy: email}).populate({
-    path: 'createdById'
-  })
-  // const sortedResponse = response.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  if (email) {
+    try {
+      const response = await ProductModel.find({ createdBy: email }).populate({
+        path: 'createdById'
+      })
+      if (!response) {
+        return NextResponse.json({
+          success: false,
+          message: "Failed to fetch products"
+        })
+      }
 
-  return NextResponse.json({ response });
+      return NextResponse.json({ response });
+
+    } catch (error) {
+      return NextResponse.json({
+        success: false,
+        message: error.message
+      }, { status: 500 })
+    }
+  } else {
+
+    try {
+      const response = await ProductModel.find({}).limit(limit).populate({
+        path: 'createdById'
+      });
+      if (!response) {
+        return NextResponse.json({
+          success: false,
+          message: "Failed to fetch product"
+        });
+      }
+
+      return NextResponse.json({ response });
+
+    } catch (error) {
+      return NextResponse.json({
+        success: false,
+        message: error.message
+      }, { status: 500 })
+    }
+
+  }
+
 }

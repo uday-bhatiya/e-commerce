@@ -29,7 +29,7 @@ export const ProductEditableOption = ({ children }) => {
 const ProductCardItem = ({ product, editable = false }) => {
   return (
     <div>
-      <Card className='p-3 mt-5'>
+      <Card className='p-3 mt-5 max-w-max'>
         <Image
           src={product?.imageUrl}
           alt={product?.title}

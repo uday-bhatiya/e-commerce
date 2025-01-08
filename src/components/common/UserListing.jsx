@@ -47,7 +47,7 @@ const UserListing = () => {
           <h2 className='font-medium text-2xl text-center text-gray-500 mt-10'>No listing found</h2>
         }
 
-        <div className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5'>
           {listing?.map((item, index) => (
             <ProductCardItem key={index} product={item} editable={true} />
           ))}
