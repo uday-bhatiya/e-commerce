@@ -12,7 +12,10 @@ const Hero = () => {
                     <p className='text-gray-200 my-5'>Join a growing family of 53,537 designers, creator and makers from around the world</p>
 
                     <div className='flex gap-5'>
+                       
+                        <Link href={'/explore'}>
                         <Button>Explore</Button>
+                        </Link>
                         <Link href={'/dashboard'}>
                         <Button className='bg-red-500 hover:bg-red-600'>Sell</Button>
                         </Link>

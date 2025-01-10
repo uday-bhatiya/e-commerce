@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from '../ui/card'
 import Image from 'next/image'
 import { Button } from '../ui/button'
-import { ChartLine, GrabIcon, MoreVertical, PenBox, Trash2 } from 'lucide-react'
+import { ChartLine, MoreVertical, PenBox, Trash2 } from 'lucide-react'
 import {
   Popover,
   PopoverContent,
