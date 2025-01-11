@@ -113,6 +113,8 @@ export async function GET(req) {
   const email = searchParams.get('email');
   const limit = searchParams.get('limit');
 
+  await connectDb();
+
   if (email) {
     try {
       const response = await ProductModel.find({ createdBy: email }).populate({

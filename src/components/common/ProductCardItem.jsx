@@ -8,6 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "../ui/popover";
+import Link from 'next/link'
 
 export const ProductEditableOption = ({ children }) => {
   return (
@@ -28,7 +29,7 @@ export const ProductEditableOption = ({ children }) => {
 
 const ProductCardItem = ({ product, editable = false }) => {
   return (
-    <div>
+    <Link href={`/explore/${product._id}`}>
       <Card className='p-3 mt-5 max-w-max'>
         <Image
           src={product?.imageUrl}
@@ -57,7 +58,7 @@ const ProductCardItem = ({ product, editable = false }) => {
           </div>
         </div>
       </Card>
-    </div>
+    </Link>
   )
 }
 
