@@ -1,10 +1,8 @@
 import React from 'react'
 import ProductCardItem from '../common/ProductCardItem';
+import { useUser } from '@clerk/nextjs';
 
 const AllProducts = ({ allProducts }) => {
-
-    const productList = 0;
-
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5'>
     {allProducts.length > 0 ?  allProducts.map((item, index) => (
